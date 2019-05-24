@@ -1,0 +1,1 @@
+{"topic": "wordcount", "partition": 0, "fromOffset": 69, "untilOffset": 69}

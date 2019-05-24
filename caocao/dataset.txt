@@ -1,0 +1,260 @@
+root
+ |-- Data: array (nullable = true)  		--本次操作引起的数据变更
+ |    |-- element: struct (containsNull = true)
+ |    |    |-- Data: struct (nullable = true)
+ |    |    |    |-- Date: string (nullable = true)
+ |    |    |    |-- Time: long (nullable = true)
+ |    |    |    |-- ct: long (nullable = true)
+ |    |    |    |-- give: long (nullable = true)
+ |    |    |    |-- id: long (nullable = true)
+ |    |    |    |-- idx: long (nullable = true)
+ |    |    |    |-- new: long (nullable = true)
+ |    |    |    |-- old: long (nullable = true)
+ |    |    |-- Type: string (nullable = true)
+ |-- Date: string (nullable = true) 		--操作时间
+ |-- Op: string (nullable = true) 		--玩家行为
+ |-- Param: string (nullable = true)		--本次操作中的相关参数 ()
+ |-- Time: long (nullable = true)		--时间戳
+ |-- Types: array (nullable = true)		 --本次行为引起的变化类型
+ |    |-- element: string (containsNull = true)
+ |-- Uid: long (nullable = true) 			--玩家角色码
+ |-- UserData: struct (nullable = true) 		--玩家信息
+ |    |-- Account: long (nullable = true)       --用户账号
+ |    |-- Channel: string (nullable = true)     --渠道标识
+ |    |-- CreateTime: long (nullable = true)    --角色创建时间戳
+ |    |-- DeviceNum: string (nullable = true)   --空
+ |    |-- Diamond: long (nullable = true)       --元宝数量
+ |    |-- Gold: long (nullable = true)          --铜钱数量
+ |    |-- Grain: long (nullable = true)         --粮草数量
+ |    |-- LastVisitIp: string (nullable = true) --最后一次登陆ip
+ |    |-- Lv: long (nullable = true)            --角色等级
+ |    |-- Platform: long (nullable = true)      --平台 0:未知   1:安卓    2:IOS
+ |    |-- RoleName: string (nullable = true)    --角色名
+ |    |-- SubChannel: string (nullable = true)  --渠道标识
+ |    |-- Uid: long (nullable = true)           --角色id
+ |    |-- VipLv: long (nullable = true)         --vip等级（0-22）
+ 
+ 
+参数单独说明
+Op
+    BeginExpedition		过关斩将
+    BuyArenaFightCount  消耗——比武场购买战斗次数
+    BuyChest		    消耗——抽宝箱
+    BuyEnergy		    消耗——购买体力
+    BuyGold		        消耗——购买铜钱
+    BuyGrain		    消耗——购买粮草
+    BuyGrowthPlan		消耗——购买成长计划
+    BuySkillPoint		消耗——购买技能点
+    CampWar_ReachCity   消耗——国战,瞬间到达城池
+    CampWar_Summon		消耗——国战,召集令
+    CampWar_SummonTeam
+    CampWar_SupplyHeros	消耗——国战
+    ChangeRoleName		消耗——角色改名消耗
+    DoActivityCumulativeLogin		新增——连续登陆活动奖励
+    DoActivitySignIn	新增——签到活动奖励
+    DoTask		        新增——做任务
+    ExchangeGiftCard    新增——兑换礼品卡
+    FastPlayFb		    消耗——快速过副本
+    GetActivityReward   新增——活动奖励？？？
+    Guild_Contribute    消耗——公会贡献
+    Guild_Create		消耗——创建公会
+    Guild_SentCare		消耗——公会放粮草
+    InfiniteTower_BuyBuff		消耗——通天塔购买BUFF
+    RecvMail		    新增——邮件领取
+    ResetBeaconPlayCount		消耗——重置大副本次数
+    SelectCamp		    初始选择阵营
+    SettleOrder		    新增——充值订单
+    ShopBuyGoods		消耗——商店购买物品
+    ShopRefresh		    消耗——商店刷新
+    TurnCard		    消耗——翻牌（通天塔、转盘）
+    TurnTable_GetReward	新增——转盘
+    WorldBoss_BuyBuff	消耗——？？购买BUFF
+    WorldBoss_RebornUser    消耗——？？重生
+    Worship		        新增——膜拜    
+    GetMail
+    InfiniteTower_FightEnd
+    UserLoginEx
+    Guild_Worship
+    UserGuild_GetDailyReward    
+    UpdateArenaIntervalReward
+    SellItem
+    RecvExpeditionBox
+    UpdateUser
+    CampBuilding    
+    CampTask_Reward
+    EndPlayFb
+    BeginExpeditionTrial
+    HeroUpLv
+    HeroSkillUp
+    EquipUpEx
+    EquipGrowUpEx
+    DoActionForBeauty
+    ItemSynthesis
+    UseProp    
+    TurnTable_AddTurnCnt
+    SoliderAddCount
+    CampWar_GetMiracleFight
+    SoliderUp
+    UserGuild_SkillLvUp
+    GetUserNotice
+    AppStoreCheckReceipt
+    HeroUpQuality
+    WorldBoss_GetReward
+    EquipUp
+    HeroAwake
+    EndChallenge
+    EquipGrowUp
+    GetUserActivity
+    CrossServerArena_C_GetArenaData
+    WorldBoss_GetData
+    UnlockStarMap
+    HeroDismiss
+    HeroSynthesis
+    EquipOutset
+    EquipInset
+    Chat
+    HeroUpStar
+    InfiniteTower_FightBegin
+    EquipSplit
+    EquipRecast
+    Guild_GetGuildData
+    GrowUpSeal
+    EndExpedition
+    BeginPlayFb
+    Mantra_Do
+    Mantra_Save
+    BuildSeal    
+    InfiniteTower_GetData
+    CreateRole
+    GetFriendDetails
+    EquipSmelt  
+    QueryRecommendFriend
+    User
+    TurnTable_Turn
+    BeginChallenge
+    GmGetItem
+    Guild_Boss
+    QueryHeroChest
+
+Types - 对应Data子项字段说明
+    解释: 举例, 如果 Data数组字段的子元素中的 Type 为 "AddProp", 则子元素中给的 Data数组字段的值为 "id", "ct", "old", "new"
+
+
+    AddProp     新增道具
+        id          道具id
+        ct          新增数量
+        old
+        new
+        
+    UserLogin   用户登陆
+        Data
+        Time
+        
+    UserLogout  用户退出
+        Date        日期: 2019-04-30 18:40:56
+        Time        时间戳
+        
+    DoTask      做任务
+        id          任务id
+        
+    获得货币
+    GiveKingMoney    王者币
+    GiveBloodMoney   血玉币 
+    GiveDiamond      元宝
+    GivePrestige     威望
+    GiveTowerMoney   通天塔币    
+    GiveGuildMoney   公会币
+    GiveCrossMoney   跨服币
+    GiveGold         铜钱
+        old
+        new
+        give         新增数量
+    
+    消耗货币
+    UseKingMoney
+    UseCrossMoney
+    UseTowerMoney    
+    UsePrestige
+    UseBloodMoney                 
+    UseGuildMoney
+    UseDiamond        
+    UseGold         
+        old
+        new
+        give         变化数量
+                   
+    SignIn      签到
+        count       本月已签到次数
+                    
+    MailReward  领取邮件     
+        "type" : "SysMail",
+        "mailid" : "25976C4C01377839C5075D4BCFEA541F",
+        "showtime" : NumberLong(1556508595),
+        "time" : NumberLong(1556508595),
+        "sname" : "小玉",
+        "attach" : {
+          "reward" : {
+            "Item1_" : [NumberLong(3), NumberLong(35023), NumberLong(1), NumberLong(1)],
+            "Item1_Rate" : NumberLong(1),
+            "Item2_" : [NumberLong(2), NumberLong(20001), NumberLong(1), NumberLong(8)],
+            "Item2_Rate" : NumberLong(1),
+            "Item4_" : [NumberLong(3), NumberLong(21102), NumberLong(1), NumberLong(1)],
+            "Item4_Rate" : NumberLong(1)
+          }
+        },
+        "tile" : "五一特供！",
+        "content" : "恭喜主公,充值已滿8,請查收獎勵！",
+        "Guid" : "9F2DC70218C468AFA83CFEF9902BEC36"
+                
+    RemoveProp    消耗道具
+        it          道具id  
+        ct          变化数量
+        old
+        new
+    
+    DeleteEquip   装备删除  
+    UpdateEquip   装备升级
+    ReplaceEquip  装备替换
+    AddEquip      装备新增
+        id
+        lv
+        in  
+        
+    UseHelper     使用好友助阵                
+        f               好友id
+             
+    AddHero       新增英雄
+        id              英雄id
+        
+    DeleteHero    解雇英雄
+    UpdateHero    英雄更新数据
+        ...
+        ...
+        
+    CheckReceipt  结算谷歌/苹果订单                 
+        OrderData       ...
+        
+    SettleOrder   结算所有订单
+        OrderId         订单id
+        Channel         订单渠道
+        Amount          金额
+        
+    EndChallenge    竞技场/官职挑战               
+                              
+        
+    GetItemFromChestTableAgain   抽卡
+        ...
+        ItemId      获得物品id       
+                  
+    NewAccount      创建账号(初次连接时会创建)
+    CreateRole      创建角色
+        Date
+        Time
+        
+    DailyRecharge   DailyRecharge 活动
+    Recharge        Recharge活动
+    Spend           Spend活动                 
+        TotalMoney
+        
+    CumulativeLogin Cumulative活动                
+        count   
